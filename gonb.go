@@ -36,7 +36,7 @@ func (a API) Token() (*oauth2.Token, error) {
 
 //	Endpoint describes just the final part of the url (e.g. "people")
 
-func (a *API) Exec(endpoint string, res interface{}, method string, params map[string]string) error {
+func (a *API) Exec(endpoint string, res interface{}, method string, params *map[string]string) error {
 
 	var body io.Reader
 	var err error
@@ -47,7 +47,7 @@ func (a *API) Exec(endpoint string, res interface{}, method string, params map[s
 	if endpoint != "" {
 		url = "https://" + a.slug + ".nationbuilder.com/api/v1/" + endpoint + "?access_token=" + a.access_token
 
-		for key, val = range params {
+		for key, val = range *params {
 			url += "&" + key + "=" + val
 		}
 	}
