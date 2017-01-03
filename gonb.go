@@ -34,7 +34,10 @@ func (a API) Token() (*oauth2.Token, error) {
 	return tkn, nil
 }
 
-//	Endpoint describes just the final part of the url (e.g. "people")
+/*
+	Endpoint describes just the final part of the url (e.g. "people").
+	Res is whatever type should accept the result of the API query.
+*/
 
 func (a *API) Exec(endpoint string, res interface{}, method string, params *map[string]string) error {
 

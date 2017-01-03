@@ -19,6 +19,7 @@ type Person struct {
 	Tags           []string `json:"tags"`
 	PrimaryAddress Address  `json:"primary_address"`
 	Volunteer      bool     `json:"is_volunteer"`
+	Username       string   `json:"username"`
 }
 
 func (p *Person) Show() error {
